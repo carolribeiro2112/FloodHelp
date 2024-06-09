@@ -17,6 +17,12 @@ export default function Header () {
     })
   }
 
+  
+  // const handleLogout = () =>{
+  //   localStorage.clear()
+  // } 
+  
+
   return(
     <div className="mx-auto py-5 bg-slate-900 flex items-center justify-center">
       <header className="p-3 bg-slate-900 flex flex-1 flex-row justify-between items-center max-w-[1200px]">
@@ -28,7 +34,12 @@ export default function Header () {
         <div className="flex flex-row items-center space-x-8 m-0">
           {
             wallet 
-              ?  <button type="button" className="bg-yellow-400 text-slate-900 p-2 rounded-md"><a href="/create">Pedir Ajuda</a></button>
+              ? (
+                <div className="flex flex-row items-center">
+                    <button type="button" className="bg-yellow-400 text-slate-900 p-2 rounded-md"><a href="/create">Pedir Ajuda</a></button>)
+                    {/* <button type="button" className="bg-yellow-400 text-slate-900 p-2 rounded-md" onClick={handleLogout}><a href="/">Sair</a></button>) */}
+                </div>
+              )
               :  (
                 <div className="flex flex-row items-center">
                   <img src="/metamask.svg" className="w-6"/>

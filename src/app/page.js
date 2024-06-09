@@ -39,7 +39,7 @@ export default function Home() {
         {
           requests && requests.length
             ? requests.map(rq => <Request key={rq.id} data={rq} />)
-            : <>Conect sua carteira MetaMask no botão "Entrar" para ajudar ou pedir ajuda.</>
+            : <p className="text-slate-900">Conect sua carteira MetaMask no botão "Entrar" para ajudar ou pedir ajuda.</p>
         }
         </div>
       </div>
