@@ -13,7 +13,7 @@ export default function Header () {
   const btnLoginClick = ()  => {
     doLogin().then(wallet => setWallet(wallet)).catch(err => {
       console.error(err);
-      alert(err.message);
+      // alert(err.message);
     })
   }
 
@@ -28,7 +28,7 @@ export default function Header () {
       <header className="p-3 bg-slate-900 flex flex-1 flex-row justify-between items-center max-w-[1200px]">
         <div className="justify-self-start">
           <a href="/" className="no-underline">
-            <h1 className="font-bold text-slate-100">FloodHelp</h1>
+            <h1 className="font-bold text-slate-100 text-3xl">FloodHelp</h1>
           </a>
         </div>
         <div className="flex flex-row items-center space-x-8 m-0">
@@ -42,8 +42,11 @@ export default function Header () {
               )
               :  (
                 <div className="flex flex-row items-center">
-                  <img src="/metamask.svg" className="w-6"/>
-                  <button type="button" className="flex border-solid border border-white text-slate-100 p-2 rounded-md" onClick={btnLoginClick}> Entrar</button>
+                  
+                  <button type="button" className="flex border-solid border border-white text-slate-100 p-2 rounded-md" onClick={btnLoginClick}>
+                    <img src="/metamask.svg" className="w-6 mr-1"/>
+                    Conectar metamask
+                  </button>
                 </div>
                 )
           }
