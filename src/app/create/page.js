@@ -57,13 +57,10 @@ export default function Home() {
               <input type="number" id="goal" placeholder="0.00" className="block w-1/2 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={request.goal} onChange={onInputChange} />
             </div>
           </div>
-          <div className="flex items-center">
-            <div className="mb-3">
-              <a href="/" className="w-1/3 p-3 outline-1 outline-slate-900">Voltar</a>
-            </div>
-            <div className="mb-3 p-0">
-              <button type="button" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={btnSaveClick}>Enviar Pedido</button>
-            </div>
+          <div className="flex items-center w-1/2">
+            
+            <button href="/" className="w-1/3 p-3 mb-3">Voltar</button>
+            <button type="button" className="mb-3 p-0 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={btnSaveClick}>Enviar Pedido</button>
           </div>
         </div>
       <Footer/>
