@@ -31,9 +31,9 @@ export default function Home() {
   return (
     <>
       <Header/>
-      <div className="container">
+      <div className="container m-auto">
         <div>
-          <p className="text-slate-900">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</p>
+          <p className="text-slate-900 py-4">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</p>
         </div>
         <div>
         {
