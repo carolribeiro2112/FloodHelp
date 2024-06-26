@@ -31,7 +31,7 @@ export default function Request({data}) {
   }
 
   return(
-    <div className="gap-3 p-3 my-3 border rounded-lg flex justify-between">
+    <div className="gap-3 p-3 my-3 rounded-lg flex justify-between shadow-custom">
       <div>
       <div className="flex items-center mb-2">
         <img src={generateAvatarURL(data.author)} width="32" height="32" className="mr-2 rounded-full" />
@@ -50,8 +50,8 @@ export default function Request({data}) {
       <div className="w-1/4 flex text-end items-center justify-center">
         {
           localStorage.getItem("wallet") === data.author.toLowerCase()
-            ? <button type="button" className="flex w-1/2 justify-center rounded-md bg-red-500 text-slate-50" onClick={btnCloseClick}>Fechar</button>
-            : <button type="button" className="flex w-1/2 justify-center rounded-md bg-green-500 text-slate-50" onClick={btnHelpClick}>&#36; Ajudar</button>
+            ? <button type="button" className="flex w-2/5 py-2 justify-center rounded-md bg-red-500 hover:bg-red-600 text-slate-50" onClick={btnCloseClick}>Fechar</button>
+            : <button type="button" className="flex w-2/5 py-2 justify-center rounded-md bg-green-500 hover:bg-green-600 text-slate-50" onClick={btnHelpClick}>&#36; Ajudar</button>
         }
       </div>   
     </div>

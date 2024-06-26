@@ -7,7 +7,11 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'custom': '0 0px 8px rgba(0, 0, 0, 0.16)',
+      }
+    },
   },
   plugins: [],
 };
