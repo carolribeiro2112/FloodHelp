@@ -22,6 +22,9 @@ export default function Header () {
   //   localStorage.clear()
   // } 
   
+  if(!wallet) {
+    
+  }
 
   return(
     <div className="mx-auto py-5 bg-slate-900 flex items-center justify-center">
@@ -36,14 +39,13 @@ export default function Header () {
             wallet 
               ? (
                 <div className="flex flex-row items-center">
-                    <button type="button" className="bg-yellow-400 text-slate-900 p-2 rounded-md"><a href="/create">Pedir Ajuda</a></button>)
+                    <button type="button" className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 p-2 rounded-md"><a href="/create">Pedir Ajuda</a></button>)
                     {/* <button type="button" className="bg-yellow-400 text-slate-900 p-2 rounded-md" onClick={handleLogout}><a href="/">Sair</a></button>) */}
                 </div>
               )
               :  (
                 <div className="flex flex-row items-center">
-                  
-                  <button type="button" className="flex border-solid border border-white text-slate-100 p-2 rounded-md" onClick={btnLoginClick}>
+                  <button type="button" className="flex border-solid border border-white text-slate-100 p-2 rounded-md hover:bg-slate-800" onClick={btnLoginClick}>
                     <img src="/metamask.svg" className="w-6 mr-1"/>
                     Conectar metamask
                   </button>

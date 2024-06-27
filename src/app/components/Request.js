@@ -1,5 +1,6 @@
 import {generateAvatarURL} from "@cfx-kit/wallet-avatar"
 import Web3 from "web3";
+import { closeRequest, donate } from "../services/Web3Service";
 
 export default function Request({data}) {
 
