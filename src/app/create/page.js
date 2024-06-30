@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { openRequest } from "../services/Web3Service";
 import Link from "next/link";
+import { WalletProvider } from "../hooks/useWallet";
 
 export default function Home() {
   const [request, setRequest] = useState({
@@ -34,7 +35,7 @@ export default function Home() {
       })
   }
   return (
-    <>
+    <WalletProvider>
       <Header/>
         <div className="p-5 w-1/2">
           <div className="m-3">
@@ -71,6 +72,6 @@ export default function Home() {
           </div>
         </div>
       <Footer/>
-    </>
+    </WalletProvider>
   );
 }

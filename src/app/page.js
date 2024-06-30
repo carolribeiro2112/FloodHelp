@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import { getAllOpenRequests } from "./services/Web3Service";
 import Request from "./components/Request";
 import Loader from "./components/Loader";
+import { WalletProvider } from "./hooks/useWallet";
 
 export default function Home() {
   const [requests, setRequests] = useState([]);
@@ -49,11 +50,11 @@ export default function Home() {
   }
 
   return (
-    <>
+    <WalletProvider>
       <Header />
       <div className="container m-auto pb-3">
         <div>
-          <p className="text-slate-900 py-4">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</p>
+          <h2 className="text-slate-900 py-4 text-xl font-semibold">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</h2>
         </div>
         <div>
           {isMetamaskInstalled === null ? (
@@ -70,7 +71,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-    </>
+    </WalletProvider>
   );
 }
 

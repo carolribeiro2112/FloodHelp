@@ -1,8 +1,10 @@
 import {generateAvatarURL} from "@cfx-kit/wallet-avatar"
 import Web3 from "web3";
 import { closeRequest, donate } from "../services/Web3Service";
+import { useWallet } from "../hooks/useWallet";
 
 export default function Request({data}) {
+  const { wallet } =useWallet()
 
   function btnCloseClick() {
     if (!confirm("Tem certeza que deseja fechar este pedido?")) return;
@@ -50,7 +52,7 @@ export default function Request({data}) {
       </div> 
       <div className="w-1/4 flex text-end items-center justify-center">
         {
-          localStorage.getItem("wallet") === data.author.toLowerCase()
+          wallet.toLowerCase() === data.author.toLowerCase()
             ? <button type="button" className="flex w-2/5 py-2 justify-center rounded-md bg-red-500 hover:bg-red-600 text-slate-50" onClick={btnCloseClick}>Fechar</button>
             : <button type="button" className="flex w-2/5 py-2 justify-center rounded-md bg-green-500 hover:bg-green-600 text-slate-50" onClick={btnHelpClick}>&#36; Ajudar</button>
         }

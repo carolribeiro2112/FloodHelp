@@ -2,14 +2,16 @@
 import { useEffect, useState } from "react"
 import { doLogin } from "../services/Web3Service"
 import Link from "next/link";
+import { useWallet } from "../hooks/useWallet";
 
 export default function Header () {
 
-  const [wallet, setWallet] = useState("");
+  const { wallet, setWallet} = useWallet()
+  // const [wallet, setWallet] = useState("");
 
-  useEffect(() => {
-    setWallet(localStorage.getItem("wallet") || "");
-  },[wallet])
+  // useEffect(() => {
+  //   setWallet(localStorage.getItem("wallet") || "");
+  // },[])
 
   const btnLoginClick = ()  => {
     doLogin().then(wallet => setWallet(wallet)).catch(err => {
