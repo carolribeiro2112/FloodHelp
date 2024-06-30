@@ -46,7 +46,7 @@ export default function Request({data}) {
               ? `BNB ${Web3.utils.fromWei(data.balance, "ether")} obtidos de ${Web3.utils.fromWei(data.goal, "ether")}`
               : `BNB ${Web3.utils.fromWei(data.goal, "ether")}`
           }
-      </span>  
+        </span>  
       </div> 
       <div className="w-1/4 flex text-end items-center justify-center">
         {

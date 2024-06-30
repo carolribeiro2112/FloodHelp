@@ -3,6 +3,7 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { openRequest } from "../services/Web3Service";
+import Link from "next/link";
 
 export default function Home() {
   const [request, setRequest] = useState({
@@ -60,11 +61,11 @@ export default function Home() {
               <input type="number" id="goal" placeholder="0.00" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={request.goal} onChange={onInputChange} />
             </div>
             <div className="flex items-center w-full">
-              <a href="/" className="w-1/3 mr-2">
+              <Link href="/" passHref className="w-1/3 mr-2">
                 <button className="w-full px-3 py-1 mb-3 mr-2 rounded-md border-2 border-slate-300 hover:border-indigo-500">
                   Voltar
                 </button>
-              </a>
+              </Link>
               <button type="button" className="mb-3 px-3 py-1.5 flex w-full justify-center rounded-md bg-indigo-600 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={btnSaveClick}>Enviar Pedido</button>
             </div>
           </div>

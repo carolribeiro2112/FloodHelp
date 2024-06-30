@@ -4,46 +4,73 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { getAllOpenRequests } from "./services/Web3Service";
 import Request from "./components/Request";
+import Loader from "./components/Loader";
 
 export default function Home() {
   const [requests, setRequests] = useState([]);
+  const [isMetamaskInstalled, setIsMetamaskInstalled] = useState(null); // inicializa como null
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(()=> {
-    loadRequests(0)
-  },[])
-  
+  useEffect(() => {
+    if (window.ethereum) {
+      setIsMetamaskInstalled(true);
+    } else {
+      setIsMetamaskInstalled(false);
+    }
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if (isMetamaskInstalled) {
+      loadRequests(0);
+    }
+  }, [isMetamaskInstalled]);
+
   async function loadRequests(lastId) {
+    setIsLoading(true);
     try {
       const result = await getAllOpenRequests(lastId);
       console.log(result)
-      if(lastId === 0) {
-        setRequests(result)
+      if (lastId === 0) {
+        setRequests(result);
       } else {
-        requests.push(...result);
-        setRequests(requests)
+        setRequests(prevRequests => [...prevRequests, ...result]);
       }
-    } catch(err) {
+    } catch (err) {
       console.error(err);
-      alert(err.message);
+      // alert(err.message);
+    } finally {
+      setIsLoading(false);
     }
+  }
+
+  if (isLoading) {
+    return <Loader />;
   }
 
   return (
     <>
-      <Header/>
+      <Header />
       <div className="container m-auto pb-3">
         <div>
           <p className="text-slate-900 py-4">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</p>
         </div>
         <div>
-        {
-          requests && requests.length
-            ? requests.map(rq => <Request key={rq.id} data={rq} />)
-            : <p className="text-slate-900">Conect sua carteira MetaMask no botão "Entrar" para ajudar ou pedir ajuda.</p>
-        }
+          {isMetamaskInstalled === null ? (
+            <Loader />
+          ) : isMetamaskInstalled ? (
+            requests.length ? (
+              requests.map(rq => <Request key={rq.id} data={rq} />)
+            ) : (
+              <p className="text-slate-900">Nenhum pedido encontrado.</p>
+            )
+          ) : (
+            <p className="text-slate-900">Conecte sua carteira MetaMask no botão "Entrar" para ajudar ou pedir ajuda.</p>
+          )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
+
