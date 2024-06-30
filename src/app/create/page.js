@@ -13,10 +13,6 @@ export default function Home() {
     contact: "",
     goal: 0
   })
-
-  function goBack(){
-    redirect('/')
-  }  
     
   function onInputChange(evt){
     setRequest(prevState => ({ ...prevState, [evt.target.id]: evt.target.value }));
@@ -37,7 +33,7 @@ export default function Home() {
   return (
     <WalletProvider>
       <Header/>
-        <div className="p-5 w-1/2">
+        <div className="p-5 w-1/2 mx-auto">
           <div className="m-3">
             <p className="text-slate-900">Preencha todos os campos abaixo para nos dizer o que precisa</p>
           </div>
@@ -63,11 +59,11 @@ export default function Home() {
             </div>
             <div className="flex items-center w-full">
               <Link href="/" passHref className="w-1/3 mr-2">
-                <button className="w-full px-3 py-1 mb-3 mr-2 rounded-md border-2 border-slate-300 hover:border-indigo-500">
+                <button className="w-full px-3 py-2 mb-3 mr-2 rounded-md border-2 border-slate-300 hover:border-slate-900">
                   Voltar
                 </button>
               </Link>
-              <button type="button" className="mb-3 px-3 py-1.5 flex w-full justify-center rounded-md bg-indigo-600 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={btnSaveClick}>Enviar Pedido</button>
+              <button type="button" className="mb-3 px-3 py-2.5 flex w-full justify-center rounded-md bg-slate-900 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900" onClick={btnSaveClick}>Enviar Pedido</button>
             </div>
           </div>
         </div>

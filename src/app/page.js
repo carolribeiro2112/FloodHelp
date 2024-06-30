@@ -54,7 +54,7 @@ export default function Home() {
       <Header />
       <div className="container m-auto pb-3">
         <div>
-          <h2 className="text-slate-900 py-4 text-xl font-semibold">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</h2>
+          <h2 className="text-slate-900 py-4 text-xl font-semibold mx-auto">Ajude as vítimas de enchentes e demais desastres naturais do Brasil</h2>
         </div>
         <div>
           {isMetamaskInstalled === null ? (
@@ -63,10 +63,10 @@ export default function Home() {
             requests.length ? (
               requests.map(rq => <Request key={rq.id} data={rq} />)
             ) : (
-              <p className="text-slate-900">Nenhum pedido encontrado.</p>
+              <p className="text-slate-900">Nenhum pedido de ajuda encontrado.</p>
             )
           ) : (
-            <p className="text-slate-900">Conecte sua carteira MetaMask no botão "Entrar" para ajudar ou pedir ajuda.</p>
+            <p className="text-slate-900">Conecte sua carteira Metamask no botão "Conectar Metamask" para ajudar ou pedir ajuda.</p>
           )}
         </div>
       </div>
